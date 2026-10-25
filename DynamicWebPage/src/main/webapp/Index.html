@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details Form</title>
+</head>
+<body>
+    <h2>User Details</h2>
+
+    <!-- Change the action to match your servlet's URL mapping (e.g. @WebServlet("/submit")) -->
+    <form action="register" method="get">
+        <p>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required>
+        </p>
+
+        <p>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" min="1" max="120" required>
+        </p>
+
+        <p>
+            <label for="address">Address / Location:</label><br>
+            <textarea id="address" name="address" rows="3" cols="30" required></textarea>
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</body>
+</html>
