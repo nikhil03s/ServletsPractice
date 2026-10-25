@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/second")
 public class SecondServlet extends HttpServlet {
@@ -17,8 +18,12 @@ public class SecondServlet extends HttpServlet {
 		// TODO Auto-generated method stub	
 		System.out.println("This is Second Servlet");
 		
+		
+		HttpSession session =req.getSession(false);
+		String name =(String) session.getAttribute("name");
+		
 		PrintWriter we=resp.getWriter();
-		we.println("This the response from second servlet");
+		we.println("This the response from second servlet"+name);
 	}
 	
 }

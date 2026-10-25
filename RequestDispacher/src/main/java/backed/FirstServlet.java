@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 
 @WebServlet("/first")
@@ -19,6 +20,15 @@ public class FirstServlet extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		System.out.println("This is first Servlet");
+		
+		String name= req.getParameter("name");
+		String city= req.getParameter("address"); 
+		
+		
+		 HttpSession session =req.getSession();
+		 session.setAttribute("name",name);
+		 session.setAttribute("city", city);
+		
 		
 		RequestDispatcher rs= req.getRequestDispatcher("/second");
 		rs.forward(req, resp);
