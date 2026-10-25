@@ -1,7 +1,9 @@
 package backed;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,6 +19,16 @@ public class FirstServlet extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		System.out.println("This is first Servlet");
+		
+		RequestDispatcher rs= req.getRequestDispatcher("/second");
+		rs.forward(req, resp);
+		rs.include(req, resp);
+		
+		PrintWriter writers=resp.getWriter();
+		writers.println("This is First Servlet Response");
+		
+		
+	
 		
 	}
 
